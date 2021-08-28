@@ -15,7 +15,7 @@ pipeline {
         stage("DockerBuild") {
             steps {
                 script {
-                    buildImage 'lokeshlish/app_test:1.0.0'
+                    buildImage "lokeshlish/${BRANCH_NAME}:1.0.0"
                 }
             }
         }
