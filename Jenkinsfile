@@ -22,7 +22,7 @@ pipeline {
         stage("DockerPush") {
             steps {
                 script {
-                    dockerPush 'lokeshlish/app_test:1.0.0'
+                    dockerPush "lokeshlish/${BRANCH_NAME}:1.0.0"
                 }
             }
         }
