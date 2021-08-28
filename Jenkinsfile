@@ -15,14 +15,14 @@ pipeline {
         stage("DockerBuild") {
             steps {
                 script {
-                    buildImage 'lokeshlish'
+                    buildImage 'lokeshlish/app_test:1.0.0'
                 }
             }
         }
         stage("DockerPush") {
             steps {
                 script {
-                    dockerPush 'lokeshlish'
+                    dockerPush 'lokeshlish/app_test:1.0.0'
                 }
             }
         }
