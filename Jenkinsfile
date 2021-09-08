@@ -23,7 +23,7 @@ pipeline {
         stage("DockerBuild") {
             steps {
                 script {
-                    dockerBuild 'lokeshlish'
+                    buildImage 'lokeshlish'
                 }
             }
         }
