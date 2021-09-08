@@ -1,8 +1,9 @@
-@Library('JenkinsSharedLibrary')_
+@Library('jenkinsdSharedLibrary')
 pipeline {
     agent any
     tools {
         gradle 'Gradle'
+        maven 'Maven'
     }
     stages {
         stage("DockerLogin") {
@@ -15,14 +16,14 @@ pipeline {
         stage("DockerBuild") {
             steps {
                 script {
-                    buildImage 'lokeshlish/app_test:1.0.0'
+                    dockerBuild 'lokeshlish'
                 }
             }
         }
         stage("DockerPush") {
             steps {
                 script {
-                    dockerPush 'lokeshlish/app_test:1.0.0'
+                    dockerPush 'lokeshlish'
                 }
             }
         }
