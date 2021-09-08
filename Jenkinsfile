@@ -1,9 +1,16 @@
-@Library('jenkinsSharedLibrary')_
+#!/usr/bin/env groovy
+
+library identifier: 'JenkinsSharedLibrary@master', retriever: modernSCM(
+        [$class: 'GitSCMSource',
+         remote: 'https://github.com/lokeshcloudy/JenkinsSharedLibrary.git',
+         credentialsId: 'github'
+        ]
+)_
 pipeline {
     agent any
     tools {
         gradle 'Gradle'
-        maven 'Maven'
+        maven 'maven'
     }
     stages {
         stage("DockerLogin") {
