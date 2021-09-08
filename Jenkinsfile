@@ -12,6 +12,9 @@ pipeline {
         gradle 'Gradle'
         maven 'maven'
     }
+    environment {
+        BRANCH_NAME = "${GIT_BRANCH.split("/").size() > 1 ? GIT_BRANCH.split("/")[1] : GIT_BRANCH}"
+    }
     stages {
         stage("DockerLogin") {
             steps {
@@ -23,14 +26,14 @@ pipeline {
         stage("DockerBuild") {
             steps {
                 script {
-                    buildImage 'lokeshlish'
+                    buildImage "lokeshlish"
                 }
             }
         }
         stage("DockerPush") {
             steps {
                 script {
-                    dockerPush 'lokeshlish'
+                    dockerPush "lokeshlish"
                 }
             }
         }
