@@ -13,7 +13,7 @@ pipeline {
         maven 'maven'
     }
     environment {
-        BRANCH = "{GIT_BRANCH}.split("/)[1]"
+            BRANCH = "{GIT_BRANCH.split("/")[1]}"
     }
     stages {
         stage("DockerLogin") {
