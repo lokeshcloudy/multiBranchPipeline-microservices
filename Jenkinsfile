@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-library identifier: 'JenkinsSharedLibrary@main', retriever: modernSCM(
+library identifier: 'JenkinsSharedLibrary@master', retriever: modernSCM(
         [$class: 'GitSCMSource',
          remote: 'https://github.com/lokeshcloudy/JenkinsSharedLibrary.git',
          credentialsId: 'github'
@@ -23,7 +23,7 @@ pipeline {
         stage("DockerBuild") {
             steps {
                 script {
-                    dockerBuild 'lokeshlish'
+                    buildImage 'lokeshlish'
                 }
             }
         }
