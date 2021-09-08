@@ -12,6 +12,9 @@ pipeline {
         gradle 'Gradle'
         maven 'maven'
     }
+    environment {
+        BRANCH = "{GIT_BRANCH}.split("/)[1]"
+    }
     stages {
         stage("DockerLogin") {
             steps {
