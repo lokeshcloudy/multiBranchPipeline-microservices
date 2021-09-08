@@ -20,6 +20,13 @@ pipeline {
                 }
             }
         }
+        stage("env") {
+            steps {
+                script {
+                    sh 'printenv'
+                }
+            }
+        }
         stage("DockerBuild") {
             steps {
                 script {
