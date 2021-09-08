@@ -7,6 +7,9 @@ library identifier: 'JenkinsSharedLibrary@main', retriever: modernSCM(
         ]
 )_
 pipeline {
+    environment {
+        BRANCH_NAME = "${GIT_BRANCH.split("/)[1]}"
+    }
     agent any
     tools {
         gradle 'Gradle'
@@ -17,13 +20,6 @@ pipeline {
             steps {
                 script {
                     dockerLogin 'dockerhub'
-                }
-            }
-        }
-        stage("env") {
-            steps {
-                script {
-                    sh 'printenv'
                 }
             }
         }
