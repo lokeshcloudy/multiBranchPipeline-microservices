@@ -23,14 +23,14 @@ pipeline {
         stage("DockerBuild") {
             steps {
                 script {
-                    buildImage "lokeshlish/env.BRANCH_NAME"
+                    buildImage "lokeshlish"
                 }
             }
         }
         stage("DockerPush") {
             steps {
                 script {
-                    dockerPush "lokeshlish/env.BRANCH_NAME"
+                    dockerPush "lokeshlish"
                 }
             }
         }
